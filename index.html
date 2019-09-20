@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body{
+    position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  *{
+    box-sizing:border-box
+  }
+  input.NTclass{
+    min-width:100px;
+    min-height:50px;
+  }
+  span{
+    color:blue;
+  }
+  span.NT1{
+    width: 30%;
+    height: 100%;
+  }
+  div.WholeBox{
+    border:5px solid blue;
+    padding: 40px 80px;
+    background:#FFECD7;
+    border-radius: 8px;
+  }
+  .RgsBtn {
+  margin:40px 40px 10% 0%;
+  padding: 5px;
+  width: 40%;
+  background: blue;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+ .RgsBtn:hover {
+  background-color: #bbb;
+}
+  .redColor{
+    color:red;
+  }
+  
+  #fieldName{
+    font-family:Arial;
+  }
+
+  #fieldName td, {
+  width:50px;
+    padding: 3px 7px 2px 7px;
+  }
+
+  th.th1{
+    font-size:0.9em;
+    text-align:right;
+    color:red;
+  }
+  th.th2{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    color:blue;
+  }
+
+  #NotesInput{
+    vertical-align: top;
+  }
+</style>
+</head>
+<body>
+<div id="myDIV" class="WholeBox">
+  <table id = "fieldName">
+    <tr>
+      <th class="th1"> <span id="FirstName">First Name</span></th>
+      <th class="th2"><input type="text" id="FNInput" placeholder="First Name"></th>
+    </tr>
+    <tr>
+      <th class="th1"> <span id ="LastName">Last Name</span></th>
+      <th class="th2"><input type="text" id="LNInput" placeholder="Last Name"></th>
+    </tr>
+    <tr>
+      <th id="EmailAddress" class="th1"><span >Email Address</span></th>
+      <th class="th2"><input type="text" id="EMInput" placeholder="Email Address"></th>
+    </tr>
+    <tr>
+      <th class="th1" id="NotesInput"><span class="NT1" id="Notes">Notes</span></th>
+      <th class="th2"> <input type="text" id="NTInput" class="NTclass" ></th>
+    </tr>
+    <tr>
+      <th class="th1"></th>
+      <th class="th2"><span onclick="checkAvail()" class="RgsBtn">Register</span></th>
+    </tr>
+  </table>
+  <br>
+  <div style="text-align:center">
+  <font id="message" color="red"></font>
+  </div>
+</div>
+  
+
+</body>
+
+<script>
+  function checkAvail(){
+    x=document.getElementById("FNInput").value;
+    if(x==""){
+      document.getElementById("message").innerHTML="First Name cannot be empty"   
+      document.getElementById("message").style.color="red"
+    }
+    else if(document.getElementById("LNInput").value==""){
+       document.getElementById("message").innerHTML="Last Name cannot be empty" 
+       document.getElementById("message").style.color="red"
+    }
+    else if(document.getElementById("EMInput").value==""){     
+       document.getElementById("message").innerHTML="Email Address cannot be empty"  
+       document.getElementById("message").style.color="red"
+    }
+    else if(document.getElementById("NTInput").value==""){
+      document.getElementById("message").innerHTML="Notes cannot be empty"
+      document.getElementById("message").style.color="red"
+    }
+    else{
+      document.getElementById("message").innerHTML="Validation Successful"    
+      document.getElementById("message").style.color="green"
+    }
+  }
+
+</script>
+
+</html>
